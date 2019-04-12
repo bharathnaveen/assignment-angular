@@ -1,9 +1,9 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 /*
   - KeysPipe used to Transform the key values in a array which bind the data in HTML Template. 
   - @params value
   */
-@Pipe({ name: 'keys' })
+@Pipe({ name: "keys" })
 export class KeysPipe implements PipeTransform {
   transform(value): any {
     const keys = [];

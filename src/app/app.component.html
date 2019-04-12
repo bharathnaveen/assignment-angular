@@ -33,7 +33,9 @@
         <tr *ngFor="let data of (dataList | filterByIssueCount: issueCount)">
           <td *ngFor="let list of (data | keys)">
             <span *ngIf="list != 'Date of birth'"> {{ data[list] }}</span>
-            <span *ngIf="list == 'Date of birth'">{{ data[list] | date: "dd-MM-yyyy" }}</span>
+            <span *ngIf="list == 'Date of birth'">{{
+              data[list] | date: "dd-MM-yyyy"
+            }}</span>
           </td>
         </tr>
       </tbody>
