@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import * as Papa from "papaparse";
+import { FileUpload } from './app.model';
 
 @Component({
   selector: "app-root",
@@ -7,7 +8,7 @@ import * as Papa from "papaparse";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  dataList: [];
+  dataList: FileUpload[] = [];
   issueCount: string;
   /*
   - UploadFile method will import .csv format file from local machine,
