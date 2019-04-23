@@ -3,14 +3,15 @@ import { FileUpload } from '../app.model';
 /*
   - FilterPipe help us to filter related values in data table. 
   - @params items
-  - @params args
+  - @params field
+  - @params value
   */
 @Pipe({ name: "filterByIssueCount" })
 export class FilterPipe implements PipeTransform {
-  transform(items: FileUpload[], args: Object): any {
-    if (!items || !args) {
+  transform(items: FileUpload[], field: string, value: string): any {
+    if (!items || !field) {
       return items;
     }
-    return items.filter(item => item["Issue count"] === args);
+    return items.filter(item => item["Issue count"] === field);
   }
 }
