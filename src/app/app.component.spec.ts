@@ -8,7 +8,6 @@ import { FilterPipe } from './pipes/filter.pipe';
 describe("AppComponent", () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let filter: FilterPipe;
 
   beforeEach(
     async(() => {
@@ -16,8 +15,6 @@ describe("AppComponent", () => {
         imports: [FormsModule],
         declarations: [AppComponent, FilterPipe]
       }).compileComponents();
-
-      filter = new FilterPipe();
     })
   );
 
@@ -36,30 +33,5 @@ describe("AppComponent", () => {
     spyOn(component, "uploadFile");
     input.dispatchEvent(new Event("change"));
     expect(component.uploadFile).toHaveBeenCalled();
-  });
-
-  it("filter pipe should be instanciated", () => {
-    expect(FilterPipe).toBeDefined();
-  });
-
-  it("filter pipe should return items if no field is given", () => {
-    let items = [];
-    items.push({ id: 1, ['Issue count']: '5' });
-
-    let filtered = filter.transform(items, null, "Issue count");
-    expect(filtered).toEqual(items);
-  });
-
-  it("filter pipe should filter", () => {
-    let items = [];
-
-    items.push({ ['Issue count']: '5' });
-    items.push({ ['Issue count']: '7' });
-    items.push({ ['Issue count']: '7' });
-    items.push({ ['Issue count']: '5' });
-
-    let filtered = filter.transform(items, '7', "Issue count");
-
-    expect(filtered.length).toBe(2);
   });
 });
