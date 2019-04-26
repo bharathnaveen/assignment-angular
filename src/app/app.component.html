@@ -2,26 +2,21 @@
   <img src="../assets/images/Rabobank.png" width="270px" />
   <hr />
   <h4>Upload only .csv format file</h4>
+  <p>
+    <ngb-alert [dismissible]="false" *ngIf="displayAlert">
+      <strong>Warning!</strong> Invalid CSV file. Please import valid file.
+    </ngb-alert>
+  </p>
   <form>
     <div class="form-group">
-      <input
-        type="file"
-        name="files"
-        class="form-control col-md-3"
-        #uploads
-        (change)="uploadFile(uploads.files)"
-        accept=".csv"
-      />
+      <input type="file" name="files" class="form-control col-md-3" #uploads (change)="uploadFile(uploads.files)"
+        accept=".csv" />
     </div>
   </form>
   <div class="table-align" *ngIf="dataList.length != 0">
     <label>Filter By Issue Count</label>
     <div class="form-group">
-      <input
-        type="text"
-        class="form-control col-md-3"
-        [(ngModel)]="issueCount"
-      />
+      <input type="text" class="form-control col-md-3" [(ngModel)]="issueCount" />
     </div>
     <table class="table table-hover">
       <thead class="thead-dark">

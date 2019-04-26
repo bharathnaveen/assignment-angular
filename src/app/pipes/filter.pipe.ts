@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform } from "@angular/core";
+import { Pipe, PipeTransform } from '@angular/core';
 import { FileUpload } from '../app.model';
 /*
   - FilterPipe help us to filter related values in data table. 
@@ -6,12 +6,12 @@ import { FileUpload } from '../app.model';
   - @params field
   - @params value
   */
-@Pipe({ name: "filterByIssueCount" })
+@Pipe({ name: 'filterByIssueCount' })
 export class FilterPipe implements PipeTransform {
   transform(items: FileUpload[], field: string, value: string): any {
     if (!items || !field) {
       return items;
     }
-    return items.filter(item => item["Issue count"] === field);
+    return items.filter(item => item['Issue count'] === field);
   }
 }

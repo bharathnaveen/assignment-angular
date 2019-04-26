@@ -1,18 +1,19 @@
-import { async, ComponentFixture, TestBed } from "@angular/core/testing";
-import { FormsModule } from "@angular/forms";
-import { By } from "@angular/platform-browser";
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { By } from '@angular/platform-browser';
 
-import { AppComponent } from "./app.component";
+import { AppComponent } from './app.component';
 import { FilterPipe } from './pipes/filter.pipe';
 
-describe("AppComponent", () => {
+describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(
     async(() => {
       TestBed.configureTestingModule({
-        imports: [FormsModule],
+        imports: [NgbModule, FormsModule],
         declarations: [AppComponent, FilterPipe]
       }).compileComponents();
     })
@@ -24,14 +25,14 @@ describe("AppComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("file change event should arrive in handler", () => {
-    let input = fixture.debugElement.query(By.css("input[type=file]")).nativeElement;
-    spyOn(component, "uploadFile");
-    input.dispatchEvent(new Event("change"));
+  it('file change event should arrive in handler', () => {
+    let input = fixture.debugElement.query(By.css('input[type=file]')).nativeElement;
+    spyOn(component, 'uploadFile');
+    input.dispatchEvent(new Event('change'));
     expect(component.uploadFile).toHaveBeenCalled();
   });
 });
